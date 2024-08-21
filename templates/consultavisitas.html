@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consulta de Visitas</title>
+    <script src="{{ url_for('static', filename='js/consultavisitas.js') }}">
+    </script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ConsultaVisitas.css') }}">
+</head>
+<body>
+    <h1>Consulta de Visitas</h1>
+    <div id="cabecalho">
+        <div id="ID">Sequencia</div>
+        <div id="nome">Nome</div>
+        <div id="endereco">endereço</div>
+        <div id="descricao">descrição</div>
+        <div id="preco">preco</div>
+        <div id="data">data</div>
+    </div>
+    <div id="data-container"></div>
+    <div class="container">
+    <div id="botaovoltar" onclick="location.href='/';"> Voltar para menu principal</div>
+    </body>
+</html>

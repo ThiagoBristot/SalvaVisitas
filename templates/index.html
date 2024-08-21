@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inicio</title>
+    <script src="{{ url_for('static', filename='js/menu.js') }}">
+    </script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1 id="titulo">Menu de opções</h1>
+    <div id="menu">
+        <div id="ConsultaClientes" onclick="location.href='consultaclientes';">Consultar clientes cadastrados</div>
+        <div id="ConsultaVisitas" onclick="location.href='consultavisitas';">Consultar visitas realizadas</div>
+        <div id="NovoCliente" onclick="location.href='novocliente';">Novo cliente</div>
+        <div id="NovaVisita" onclick="location.href='novavisita';">Nova visita</div>
+    </div>  
+</body>
+</html>

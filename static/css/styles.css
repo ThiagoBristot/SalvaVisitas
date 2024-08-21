@@ -1,0 +1,40 @@
+body {
+    background-color: #a9becc;
+}
+/* Titulo da pagina*/
+#titulo {
+    display: flex;
+    align-items: center; /* Centraliza o texto verticalmente */
+    justify-content: center; /* Centraliza o texto horizontalmente */
+    flex: 1; /* Cada div ocupa a mesma proporção da altura disponível */
+    text-align: center;
+}
+
+/* Define o estilo para o menu */
+#menu {
+    display: flex;
+    flex-direction: column; /* Alinha as divs verticalmente */
+    height: 100vh; /* O menu ocupa a altura total da página */
+    width: 100vw; /* O menu ocupa a largura total da página */
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo geral para as divs do menu */
+#menu > div {
+    display: flex;
+    align-items: center; /* Centraliza o texto verticalmente */
+    justify-content: center; /* Centraliza o texto horizontalmente */
+    flex: 1; /* Cada div ocupa a mesma proporção da altura disponível */
+    text-align: center;
+    font-size: 24px; /* Tamanho da fonte do texto */
+    background-color: #8f8e8e; /* Cor de fundo padrão */
+    border: 1px solid #ccc; /* Borda entre as divs */
+    transition: background-color 0.3s ease; /* Animação para troca de cor */
+}
+
+/* Estilo para as divs ao passar o mouse */
+#menu > div:hover {
+    background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
+    cursor: pointer; /* Cursor muda para pointer ao passar o mouse */
+}
