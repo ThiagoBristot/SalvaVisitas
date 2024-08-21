@@ -1,40 +1,69 @@
+/* Estilo para o corpo da página */
 body {
-    background-color: #a9becc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9; /* Branco com um toque de cinza claro */
+    margin: 0;
+    padding: 20px;
+    color: #333; /* Texto cinza escuro */
 }
-/* Titulo da pagina*/
+
 #titulo {
     display: flex;
-    align-items: center; /* Centraliza o texto verticalmente */
-    justify-content: center; /* Centraliza o texto horizontalmente */
-    flex: 1; /* Cada div ocupa a mesma proporção da altura disponível */
-    text-align: center;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Define o estilo para o menu */
+/* Estilo para o contêiner do menu */
 #menu {
     display: flex;
-    flex-direction: column; /* Alinha as divs verticalmente */
-    height: 100vh; /* O menu ocupa a altura total da página */
-    width: 100vw; /* O menu ocupa a largura total da página */
-    margin: 0;
-    padding: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
 }
 
-/* Estilo geral para as divs do menu */
+/* Estilo para cada item do menu */
 #menu > div {
-    display: flex;
-    align-items: center; /* Centraliza o texto verticalmente */
-    justify-content: center; /* Centraliza o texto horizontalmente */
-    flex: 1; /* Cada div ocupa a mesma proporção da altura disponível */
+    background-color: #007bff; /* Azul claro */
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
     text-align: center;
-    font-size: 24px; /* Tamanho da fonte do texto */
-    background-color: #8f8e8e; /* Cor de fundo padrão */
-    border: 1px solid #ccc; /* Borda entre as divs */
-    transition: background-color 0.3s ease; /* Animação para troca de cor */
+    width: 300px; /* Largura fixa para todos os itens do menu */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Estilo para as divs ao passar o mouse */
+/* Efeito hover para cada item do menu */
 #menu > div:hover {
-    background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
-    cursor: pointer; /* Cursor muda para pointer ao passar o mouse */
+    background-color: #0056b3; /* Azul mais escuro */
+    transform: scale(1.05); /* Efeito de zoom leve */
+}
+
+/* Estilo para o botão de sair */
+#botaovoltar {
+    background-color: #007bff; /* Azul claro */
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Efeito hover para o botão de sair */
+#botaovoltar:hover {
+    background-color: #0056b3; /* Azul mais escuro */
+    transform: scale(1.05); /* Efeito de zoom leve */
+}
+
+/* Centralizar o botão de sair */
+.container {
+    text-align: center;
 }
