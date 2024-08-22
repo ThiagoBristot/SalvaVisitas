@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Visita</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/NovaVisita.css') }}">
+</head>
+<body>
+    <h1>Nova Visita</h1>
+    <form id="novaVisitaForm">
+        <label for="cliente_id">ID do Cliente:</label>
+    <input type="text" id="cliente_id" name="cliente_id" readonly>
+    <button type="button" id="selecionarCliente">Selecionar Cliente</button><br>
+
+        <label for="nome">Nome do Cliente:</label>
+        <input type="text" id="nome" name="nome" maxlength="60" required><br><br>
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" name="endereco" maxlength="60" required><br><br>
+
+        <label for="descricao">Descrição da Visita:</label>
+        <textarea id="descricao" name="descricao" maxlength="250" required></textarea><br><br>
+
+        <label for="preco">Preço:</label>
+        <input type="number" id="preco" name="preco" step="0.01" required><br><br>
+
+        <label for="data">Data da Visita:</label>
+        <input type="date" id="data" name="data" required><br><br>
+
+        <button type="submit">Salvar Visita</button>
+    </form>
+
+    <!-- Modal -->
+    <div id="clienteModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Selecione um Cliente</h2>
+            <ul id="listaClientes">
+                <!-- Lista de clientes será carregada aqui -->
+            </ul>
+        </div>
+    </div>
+
+    <div id="botaovoltar" onclick="location.href='/';">Voltar para menu principal</div>
+
+    <script src="{{ url_for('static', filename='js/novavisita.js') }}"></script>
+</body>
+</html>

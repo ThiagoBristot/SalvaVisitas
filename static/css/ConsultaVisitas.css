@@ -44,16 +44,15 @@ h1 {
 /* Estilo para cada linha de dados */
 #data-container > div {
     display: flex;
-    justify-content: space-between;
     background-color: #ffffff; /* Branco */
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border: 1px solid #dee2e6; /* Cinza muito claro */
+    border: 1px solid #9ab7d3; /* Cinza muito claro */
 }
 
 /* Estilo para cada item dentro de uma linha de dados */
-#data-container > div > div[id^="divITEM"] {
+#data-container > div > div  {
     flex: 1;
     text-align: center;
     font-size: 16px;
@@ -63,14 +62,14 @@ h1 {
     margin: 0 5px; /* Espaçamento entre as colunas */
     box-sizing: border-box;
     max-width: 100%;
-    word-wrap: break-word;
     background-color: #e9ecef; /* Cinza claro */
     color: #495057; /* Cinza escuro */
 }
 
 /* Efeito hover para cada linha de dados */
 #data-container > div:hover {
-    background-color: #f1f3f5; /* Cinza muito claro */
+    background-color: #b2d2f1; /* Cinza muito claro */
+    transform: scale(1.02); /* Efeito de zoom leve */
 }
 
 /* Estilo para o botão de voltar */

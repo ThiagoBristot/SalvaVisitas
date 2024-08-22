@@ -1,11 +1,16 @@
 from flask import Flask, render_template, request, jsonify
 from mariadb import connect
+from mariadb import mariadb
 
 app = Flask(__name__)
 
+def get_db_connection():
+    conn = connect(host="127.0.0.1", user="mysql", password="mysql", database="SalvaVisitas")
+    return conn
+
 @app.route('/Cdata', methods=['GET'])
 def get_client_data():
-    conn = connect(host="127.0.0.1", user="mysql", password="mysql", database="SalvaVisitas")
+    conn = get_db_connection()
     cursor = conn.cursor()
     try:
         cursor.execute('SELECT * FROM cliente;')
@@ -17,10 +22,10 @@ def get_client_data():
 
 @app.route('/Vdata', methods=['GET'])
 def get_visit_data():
-    conn = connect(host="127.0.0.1", user="mysql", password="mysql", database="SalvaVisitas")
+    conn = get_db_connection()
     cursor = conn.cursor()
     try:
-        cursor.execute('SELECT * FROM visita;')
+        cursor.execute('SELECT VisitaSequencia, VisitaNome, VisitaEndereco, VisitaDescricao, VisitaPreco, VisitaData from visita;')
         data = cursor.fetchall()
     finally:
         cursor.close()
@@ -39,13 +44,79 @@ def consulta_clientes():
 def consulta_visitas():
     return render_template('consultavisitas.html')
 
-@app.route('/novocliente')
-def add_cliente():
+@app.route('/novocliente', methods=['GET'])
+def novo_cliente_form():
     return render_template('novocliente.html')
 
-@app.route('/novavisita')
-def add_visita():
+@app.route('/novo_cliente', methods=['POST'])
+def novo_cliente():
+    cliente_nome = request.json.get('nome')
+    endereco = request.json.get('endereco')
+    descricao = request.json.get('descricao')
+    
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    
+    query = "INSERT INTO Cliente (ClienteNome, Endereco, ClienteDescricao) VALUES (?, ?, ?)"
+    cursor.execute(query, (cliente_nome, endereco, descricao))
+    conn.commit()
+    
+    cursor.close()
+    conn.close()
+    
+    return jsonify({'status': 'Cliente adicionado com sucesso!'})
+    
+@app.route('/novavisita', methods=['GET'])
+def nova_visita_form():
     return render_template('novavisita.html')
+
+@app.route('/nova_visita', methods=['POST'])
+def nova_visita():
+    # Pegar dados do formulário
+    data = request.json
+    cliente_id = data.get('cliente_id')
+    nome = data.get('nome')
+    endereco = data.get('endereco')
+    descricao = data.get('descricao')
+    preco = data.get('preco')
+    visita_data = data.get('data')
+
+    # Conectar ao banco de dados e realizar o INSERT
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        insert_query = """
+            INSERT INTO Visita (VisitaCliente, VisitaNome, VisitaEndereco, VisitaDescricao, VisitaPreco, VisitaData)
+            VALUES (?, ?, ?, ?, ?, ?)
+        """
+        cursor.execute(insert_query, (cliente_id, nome, endereco, descricao, preco, visita_data))
+        conn.commit()
+
+        return jsonify({"success": True})
+
+    except mariadb.Error as e:
+        print(f"Error: {e}")
+        return jsonify({"success": False, "error": str(e)})
+
+    finally:
+        cursor.close()
+        conn.close()
+
+@app.route('/clientes', methods=['GET'])
+def clientes():
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT ClienteID, ClienteNome, Endereco FROM Cliente")
+        clientes = cursor.fetchall()
+        return jsonify(clientes)
+    except mariadb.Error as e:
+        print(f"Error: {e}")
+        return jsonify({"error": str(e)})
+    finally:
+        cursor.close()
+        conn.close()
 
 if __name__ == '__main__':
     app.run(debug=True)

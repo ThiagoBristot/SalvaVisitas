@@ -6,10 +6,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const container = document.getElementById('data-container');
             data.forEach(item => {
                 div_count += 1
-                const div = document.createElement(`div${div_count}`);
+                const div = document.createElement(`div`);
+                div.id = `${div_count}`;
                 //CRIAR DIV PARA CADA ITEM 
                 for (let index = 0; index < item.length; index++) {
-                    const ItemDiv = document.createElement(`divITEM${index}`);    
+                    const ItemDiv = document.createElement(`div`);
+                    ItemDiv.id = `i${index}`
                     const textContent = document.createTextNode(`${item[index]}`);
                     ItemDiv.appendChild(textContent)
                     div.appendChild(ItemDiv)
