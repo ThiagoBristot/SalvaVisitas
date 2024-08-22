@@ -54,24 +54,22 @@ form textarea {
 
 /* Estilo do botão de enviar */
 form button[type="submit"] {
-    width: 100%;
+    width: calc(60% - 20px);
     padding: 15px;
     background-color: #007bff; /* Azul claro */
     color: white;
     font-size: 18px;
     font-weight: bold;
     border: none;
+    display: block;
+    margin: 20px auto 0 auto; /* Centralizado */
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    display: inline-block;
-    vertical-align: middle;
 }
 
 /* Efeito hover para o botão de enviar */
 form button[type="submit"]:hover {
-    display: inline-block;
-    vertical-align: middle;
     background-color: #0056b3; /* Azul mais escuro */
     transform: scale(1.02); /* Efeito de zoom leve */
 }
@@ -128,12 +126,36 @@ form button[type="submit"]:hover {
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
+    background-color: #ffffff; /* Fundo branco */
+    margin: 10% auto; /* Centralizado verticalmente */
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    width: 40%; /* Tamanho menor do modal */
+    max-width: 600px; /* Limite de largura para telas maiores */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    color: #333333; /* Texto em cinza escuro */
+    position: relative;
+}
+
+/* Estilo para a lista de clientes */
+#listaClientes {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+#listaClientes li {
+    padding: 10px;
+    border-bottom: 1px solid #d4cece;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#listaClientes li:hover {
+    background-color: #7fb9f7; /* Azul claro */
+    padding: 10px;
+    cursor: pointer;
 }
 
 .close {
@@ -150,18 +172,5 @@ form button[type="submit"]:hover {
     cursor: pointer;
 }
 
-/* Estilo para a lista de clientes */
-#listaClientes {
-    list-style-type: none;
-    padding: 0;
-}
 
-#listaClientes li {
-    padding: 10px;
-    cursor: pointer;
-    border-bottom: 1px solid #ddd;
-}
 
-#listaClientes li:hover {
-    background-color: #f0f0f0;
-}
