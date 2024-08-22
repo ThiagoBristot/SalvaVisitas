@@ -165,11 +165,6 @@ h1 {
     background-color: #357ab8; /* Azul mais escuro ao passar o mouse */
 }
 
-/* Fundo do modal */
-.modal-content {
-    background-color: #ffffff; /* Fundo branco */
-}
-
 #saveButton,
 #deleteButton {
     background-color: #00aaff;
