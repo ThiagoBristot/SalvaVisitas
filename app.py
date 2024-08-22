@@ -163,5 +163,47 @@ def delete_visita():
         return jsonify({'status': 'error', 'message': str(e)})
 
 
+@app.route('/update_cliente', methods=['POST'])
+def update_cliente():
+    data = request.get_json()
+    cliente_id = data.get('id')
+    nome = data.get('nome')
+    endereco = data.get('endereco')
+    descricao = data.get('descricao')
+
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("""
+            UPDATE Cliente
+            SET ClienteNome = %s, Endereco = %s, ClienteDescricao = %s
+            WHERE ClienteID = %s
+        """, (nome, endereco, descricao, cliente_id))
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return jsonify({'status': 'success'})
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)})
+
+@app.route('/delete_cliente', methods=['POST'])
+def delete_cliente():
+    data = request.get_json()
+    cliente_id = data.get('id')
+
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("UPDATE Visita SET VisitaCliente = NULL WHERE VisitaCliente = %s", (cliente_id,))
+        query = "DELETE FROM Cliente WHERE ClienteID = %s"
+        cursor.execute(query, (cliente_id,))
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return jsonify({'status': 'success'})
+    except Exception as e:
+        print(f"Error deleting cliente: {e}")
+        return jsonify({'status': 'error', 'message': str(e)})
+
 if __name__ == '__main__':
     app.run(debug=True)

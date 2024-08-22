@@ -54,7 +54,9 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('modal_endereco').value = item[2];
         document.getElementById('modal_descricao').value = item[3];
         document.getElementById('modal_preco').value = item[4];
-        document.getElementById('modal_data').value = item[5];
+            // Formatar a data no formato YYYY-MM-DD
+        const formattedDate = new Date(item[5]).toISOString().split('T')[0];
+        document.getElementById('modal_data').value = formattedDate;
         modal.style.display = 'block';
     }
 

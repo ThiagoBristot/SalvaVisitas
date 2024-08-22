@@ -1,15 +1,15 @@
 document.getElementById('ConsultaClientes').addEventListener('click', function() {
-    window.location.href = 'consulta_clientes.html';
+    window.location.href = 'consultaclientes.html';
 });
 
 document.getElementById('ConsultaVisitas').addEventListener('click', function() {
-    window.location.href = 'consulta_visitas.html';
+    window.location.href = 'consultavisitas.html';
 });
 
 document.getElementById('NovoCliente').addEventListener('click', function() {
-    window.location.href = 'novo_cliente.html';
+    window.location.href = 'novocliente.html';
 });
 
 document.getElementById('NovaVisita').addEventListener('click', function() {
-    window.location.href = 'nova_visita.html';
+    window.location.href = 'novavisita.html';
 });
