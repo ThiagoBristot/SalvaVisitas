@@ -118,5 +118,50 @@ def clientes():
         cursor.close()
         conn.close()
 
+
+@app.route('/update_visita', methods=['POST'])
+def update_visita():
+    data = request.json
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        query = """UPDATE Visita 
+                   SET VisitaNome=?, VisitaEndereco=?, VisitaDescricao=?, VisitaPreco=?, VisitaData=? 
+                   WHERE VisitaSequencia=?"""
+        cursor.execute(query, (
+            data['nome'], data['endereco'], data['descricao'], 
+            data['preco'], data['data'], data['id']
+        ))
+        conn.commit()
+
+        cursor.close()
+        conn.close()
+
+        return jsonify({'status': 'success'})
+    except Exception as e:
+        print(f"Erro ao atualizar visita: {e}")
+        return jsonify({'status': 'error', 'message': str(e)})
+
+@app.route('/delete_visita', methods=['POST'])
+def delete_visita():
+    data = request.json
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        query = "DELETE FROM Visita WHERE VisitaSequencia=?"
+        cursor.execute(query, (data['id'],))
+        conn.commit()
+
+        cursor.close()
+        conn.close()
+
+        return jsonify({'status': 'success'})
+    except Exception as e:
+        print(f"Erro ao atualizar visita: {e}")
+        return jsonify({'status': 'error', 'message': str(e)})
+
+
 if __name__ == '__main__':
     app.run(debug=True)
