@@ -209,8 +209,35 @@ def delete_cliente():
 def estoquemenu():
     return render_template('estoquemenu.html')
 
-@app.route('/entradaestoque')
+@app.route('/entradaestoque', methods=['GET', 'POST'])
 def entradaestoque():
+    if request.method == 'POST':
+        data = request.json
+        produto_nome = data['produto_nome']
+        descricao = data['descricao']
+        quantidade = data['quantidade']
+        preco_unitario = data['preco_unitario']
+
+        # Adiciona o produto ao banco de dados
+        try:
+            conn = get_db_connection()
+            cursor = conn.cursor()
+
+            cursor.execute("""
+                INSERT INTO estoqueitens (ItemNome, ItemDescricao, ItemQuantidade, ItemPrecoU)
+                VALUES (%s, %s, %s, %s)
+            """, (produto_nome, descricao, quantidade, preco_unitario))
+
+            conn.commit()
+            cursor.close()
+            conn.close()
+
+            return jsonify({'success': True})
+
+        except Exception as e:
+            print(f"Erro ao adicionar produto ao estoque: {e}")
+            return jsonify({'success': False})
+
     return render_template('entradaestoque.html')
 
 @app.route('/saidaestoque')
@@ -220,6 +247,51 @@ def saidaestoque():
 @app.route('/consultaestoque')
 def consultaestoque():
     return render_template('consultaestoque.html')
+
+@app.route("/Cestoque", methods=['GET'])
+def listaestoque():
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT ItemNome, ItemDescricao, ItemQuantidade, ItemPrecoU FROM estoqueitens;")
+        data = cursor.fetchall()
+        return jsonify(data)
+    except mariadb.Error as e:
+        print(f"Error: {e}")
+        return jsonify({"error": str(e)})
+    finally:
+        cursor.close()
+        conn.close()
+
+@app.route('/get_visitas')
+def get_visitas():
+    try:    
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT VisitaSequencia, VisitaNome, VisitaDescricao FROM visita;")
+        visitas = cursor.fetchall()
+        return jsonify(visitas)
+    except mariadb.Error as e:
+        print(f"Error: {e}")
+        return jsonify({"error": str(e)})
+    finally:
+        cursor.close()
+        conn.close()
+
+@app.route('/get_produtos')
+def get_produtos():
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT ItemID, ItemNome, ItemQuantidade, ItemPrecoU FROM estoqueitens;")
+        produtos = cursor.fetchall()
+        return jsonify(produtos)
+    except mariadb.Error as e:
+        print(f"Error: {e}")
+        return jsonify({"error": str(e)})
+    finally:
+        cursor.close()
+        conn.close()
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

@@ -7,39 +7,60 @@ body {
     color: #333;
 }
 
-/* Estilo para o título da página */
+/* Estilo para o título */
 h1 {
     text-align: center;
     color: #007bff;
     margin-bottom: 30px;
 }
 
-/* Estilo para os botões */
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    margin-top: 30px;
+/* Estilo para o formulário */
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Estilo para os campos do formulário */
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    background-color: #f7f9fc;
+    color: #333;
+}
+
+/* Estilo para o botão */
 button {
-    background-color: #007bff; /* Azul claro */
+    width: 40%;
+    margin: 0 auto;
+    display: block;
+    background-color: #007bff;
+    border: none;
     color: white;
-    padding: 15px;
-    font-size: 18px;
+    padding: 10px;
+    font-size: 16px;
     font-weight: bold;
     border-radius: 5px;
-    text-align: center;
-    width: 300px; /* Largura fixa para todos os itens do menu */
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    
+    text-align: center;
 }
 
 button:hover {
     background-color: #0056b3;
-    transform: scale(1.02);
 }
 
 /* Estilo para o botão de voltar */
@@ -63,4 +84,10 @@ button:hover {
 #botaovoltar:hover {
     background-color: #0056b3; /* Azul mais escuro */
     transform: scale(1.02); /* Efeito de zoom leve */
+}
+
+/* Estilos adicionais para o layout */
+textarea {
+    height: 100px;
+    resize: vertical;
 }

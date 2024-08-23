@@ -1,0 +1,104 @@
+/* Estilo para o corpo da página */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9; /* Branco com um toque de cinza claro */
+    margin: 0;
+    padding: 20px;
+    color: #333; /* Texto cinza escuro */
+}
+
+/* Estilo para o título da página */
+h1 {
+    text-align: center;
+    color: #007bff; /* Azul claro */
+    margin-bottom: 30px;
+}
+
+/* Estilo para o cabeçalho da tabela */
+#cabecalho {
+    display: flex;
+    justify-content: space-between;
+    background-color: #e9ecef; /* Cinza claro */
+    color: #333; /* Cinza escuro */
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+/* Estilo para cada coluna do cabeçalho */
+#cabecalho > div {
+    flex: 1;
+    text-align: center;
+}
+
+/* Estilo para o contêiner de dados */
+#data-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Estilo para cada linha de dados */
+#data-container > div {
+    display: flex;
+    background-color: #ffffff; /* Branco */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #9ab7d3; /* Cinza muito claro */
+}
+
+/* Estilo para cada item dentro de uma linha de dados */
+#data-container > div > div  {
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+    word-wrap: break-word; /* Força a quebra de linha */
+    overflow-wrap: break-word; /* Alternativa para forçar a quebra de linha */
+    padding: 5px;
+    border: 1px solid #ced4da; /* Cinza claro */
+    border-radius: 4px;
+    margin: 0 5px; /* Espaçamento entre as colunas */
+    box-sizing: border-box;
+    max-width: 100%;
+    background-color: #e9ecef; /* Cinza claro */
+    color: #495057; /* Cinza escuro */
+}
+
+/* Efeito hover para cada linha de dados */
+#data-container > div:hover {
+    background-color: #b2d2f1; /* Cinza muito claro */
+    transform: scale(1.02); /* Efeito de zoom leve */
+}
+
+
+/* Estilo para o botão de voltar */
+#botaovoltar {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px;
+    text-align: center;
+    background-color: #007bff; /* Azul claro */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+/* Efeito hover para o botão de voltar */
+#botaovoltar:hover {
+    background-color: #0056b3; /* Azul mais escuro */
+    transform: scale(1.05); /* Efeito de zoom leve */
+}
+
+/* Centralizar o botão de voltar */
+.container {
+    text-align: center;
+}
+

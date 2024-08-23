@@ -1,0 +1,248 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #007BFF;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"], input[type="number"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    display: inline-block;
+    width: 200px;
+    padding: 10px;
+    background-color: #007bff; /* Azul claro */
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: #0056b3; /* Azul mais escuro */
+    transform: scale(1.02); /* Efeito de zoom leve */
+}
+
+#selecionarVisita {
+    margin-left: 5%;
+}
+
+#selecionarProduto {
+    margin-left: calc(10% - 5px);
+}
+
+#BotaoSubmit {
+    width: calc(60% - 20px);
+    padding: 15px;
+    background-color: #007bff; /* Azul claro */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    display: block;
+    margin: 20px auto 0 auto; /* Centralizado */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#BotaoSubmit:hover {
+    background-color: #0056b3; /* Azul mais escuro */
+    transform: scale(1.02); /* Efeito de zoom leve */
+}
+
+#saidaEstoqueForm > input {
+    width: calc(30% - 20px);
+    display: inline-block;
+}
+
+/* Estilo do botão de voltar */
+#botaovoltar {
+    display: block;
+    width: 200px;
+    margin: 30px auto 0 auto;
+    padding: 10px;
+    background-color: #007bff; /* Azul claro */
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
+
+/* Efeito hover para o botão de voltar */
+#botaovoltar:hover {
+    background-color: #0056b3; /* Azul mais escuro */
+    transform: scale(1.02); /* Efeito de zoom leve */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+}
+
+.modal h2 {
+    margin-top: 0;
+}
+
+.modal ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.modal ul li {
+    padding: 10px;
+    background-color: #f4f4f4;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal ul li:hover {
+    background-color: #ddd;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Modal Header Styling */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.modal-content h2 {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estiliza a linha que contém os dados */
+.linha-visita, .linha-produto {
+    display: flex;
+    padding: 10px;
+    background-color: #f4f4f4;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    justify-content: space-between; /* Distribui o espaço entre os itens */
+}
+
+.linha-visita:hover, .linha-produto:hover {
+    background-color: #ddd;
+}
+
+/* Estiliza as colunas individuais */
+.coluna-id, #ID, #VID {
+    flex: 1;
+    width: 10%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.coluna-nome, #Inome {
+    flex: 1;
+    width: 60%;
+    text-align: center;
+}
+
+#Vnome, #Vdesc {
+    flex: 1;
+    min-width: 45%;
+    max-width: 50%;
+    text-align: center;
+}
+
+.coluna-quantidade, #Iquant {
+    flex: 1;
+    width: 20%;
+    text-align: center;
+}
+.coluna-preco, #Ipreco {
+    flex: 1;
+    width: 20%;
+    text-align: center;
+}
+
+/* Ajuste de margem e espaçamento */
+.linha-visita div, .linha-produto div {
+    margin-right: 10px;
+    padding: 5px 0;
+    
+}
+
+.linha-visita, .linha-produto {
+    word-wrap: break-word; /* Força a quebra de linha */
+    overflow-wrap: break-word; /* Alternativa para forçar a quebra de linha */
+}
+

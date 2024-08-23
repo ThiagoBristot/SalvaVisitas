@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Itens no Estoque</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ConsultaEstoque.css') }}">
+</head>
+<body>
+    <h1>Consulta de Itens no Estoque</h1>
+    <div id="cabecalho">
+        <div id="nome">Nome</div>
+        <div id="endereco">Descrição</div>
+        <div id="descricao">Quantidade</div>
+        <div id="ID">Preço Unitário</div>
+    </div>
+    <div id="data-container"></div>
+    <div class="container">
+    <div id="botaovoltar" onclick="location.href='/estoquemenu';">Voltar para o Menu de Estoque</div>
+
+    <script src="{{ url_for('static', filename='js/consultaestoque.js') }}"></script>
+</body>
+</html>

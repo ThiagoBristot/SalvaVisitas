@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saída de Estoque</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/SaidaEstoque.css') }}">
+</head>
+<body>
+    <h1>Saída de Estoque</h1>
+    <form id="saidaEstoqueForm">
+        <label for="visita_id">ID da Visita:</label>
+        <input type="text" id="visita_id" name="visita_id" readonly>
+        <button type="button" id="selecionarVisita">Selecionar Visita</button><br><br>
+
+        <label for="produto_id">Produto:</label>
+        <input type="text" id="produto_id" name="produto_id" readonly>
+        <button type="button" id="selecionarProduto">Selecionar Produto</button><br><br>
+
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidade" name="quantidade" min="1" required><br><br>
+
+        <button id="BotaoSubmit" type="submit">Registrar Saída</button>
+    </form>
+
+    <!-- Modal para Seleção de Visitas -->
+    <div id="visitaModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div id="VID">ID</div>
+                <div id="Vnome">Nome</div>
+                <div id="Vdesc">Descrição da visita</div>
+                <span class="close">&times;</span>
+            </div>
+            <ul id="listaVisitas">
+                <!-- Lista de visitas será carregada aqui -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal para Seleção de Produtos -->
+    <div id="produtoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div id="ID">ID</div>
+                <div id="Inome">Nome</div>
+                <div id="Iquant">Quantidade</div>
+                <div id="Ipreco">Valor</div>
+                <span class="close">&times;</span>
+            </div>
+            <ul id="listaProdutos">
+                <!-- Lista de produtos será carregada aqui -->
+            </ul>
+        </div>
+    </div>
+
+    <div id="botaovoltar" onclick="location.href='/estoquemenu';">Voltar para menu do estoque</div>
+
+    <script src="{{ url_for('static', filename='js/saidaestoque.js') }}"></script>
+</body>
+</html>
