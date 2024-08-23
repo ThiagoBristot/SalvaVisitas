@@ -11,4 +11,9 @@
 - Editar um cliente ou visita, na aba de consulta;
 - Excluir um cliente ou visita, na aba de consulta.
 
+## Imagens do projeto:
+
+![image](https://github.com/user-attachments/assets/7dcde309-950e-4e4f-a75c-658c5dc474da)
+
+
 
