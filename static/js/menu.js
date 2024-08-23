@@ -13,3 +13,7 @@ document.getElementById('NovoCliente').addEventListener('click', function() {
 document.getElementById('NovaVisita').addEventListener('click', function() {
     window.location.href = 'novavisita.html';
 });
+
+document.getElementById('EstoqueMenu').addEventListener('click', function() {
+    window.location.href = 'estoquemenu.html';
+});

@@ -205,5 +205,21 @@ def delete_cliente():
         print(f"Error deleting cliente: {e}")
         return jsonify({'status': 'error', 'message': str(e)})
 
+@app.route('/estoquemenu')
+def estoquemenu():
+    return render_template('estoquemenu.html')
+
+@app.route('/entradaestoque')
+def entradaestoque():
+    return render_template('entradaestoque.html')
+
+@app.route('/saidaestoque')
+def saidaestoque():
+    return render_template('saidaestoque.html')
+
+@app.route('/consultaestoque')
+def consultaestoque():
+    return render_template('consultaestoque.html')
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
